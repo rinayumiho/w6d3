@@ -4,16 +4,12 @@ class UsersController < ApplicationController
         render json: users
     end
 
-    # def create
-    #     render json: params
-    # end
-
     def show
         render json: User.find(params[:id])
     end
 
     def create
-        user = User.new(params.require(:user).permit(:name, :email))
+        user = User.new(params.require(:user).permit(:username))
         # replace the `user_attributes_here` with the actual attribute keys
         if user.save
             render json: user
@@ -38,6 +34,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :email)
+        params.require(:user).permit(:username)
     end
 end
