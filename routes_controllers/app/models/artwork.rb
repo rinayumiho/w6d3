@@ -12,6 +12,13 @@ class Artwork < ApplicationRecord
     message: "Can't have two pieces of the same name"
     }
 
+    def self.get_artworks(user_id) 
+        Artwork
+            .select(:id, :title, :image_url, :artist_id)
+            .joins(:artworkshares)
+            .where("(artworks.artist_id = #{user_id}) or (artwork_shares.viewer_id = #{user_id})")
+    end
+
     belongs_to :artist, 
         primary_key: :id,
         foreign_key: :artist_id,
