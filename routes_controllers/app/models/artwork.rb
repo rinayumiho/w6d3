@@ -15,7 +15,7 @@ class Artwork < ApplicationRecord
     def self.get_artworks(user_id) 
         Artwork
             .select(:id, :title, :image_url, :artist_id)
-            .joins(:artworkshares)
+            .left_outer_joins(:artworkshares)
             .where("(artworks.artist_id = #{user_id}) or (artwork_shares.viewer_id = #{user_id})")
     end
 
