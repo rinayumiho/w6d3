@@ -2,8 +2,9 @@
 #
 # Table name: users
 #
-#  id       :bigint           not null, primary key
-#  username :string           not null
+#  id    :bigint           not null, primary key
+#  name  :string           not null
+#  email :string           not null
 #
 class User < ApplicationRecord
     validates :username, presence: true
@@ -24,5 +25,11 @@ class User < ApplicationRecord
     has_many :shared_artworks,
         through: :artworks,
         source: :artworkshares
+
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Comment,
+        dependent: :destroy
 
 end
