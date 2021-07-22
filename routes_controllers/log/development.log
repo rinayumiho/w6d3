@@ -3701,3 +3701,270 @@ Completed 204 No Content in 335332ms (ActiveRecord: 0.0ms)
 Started GET "/users/3/comments" for ::1 at 2021-07-22 16:14:09 -0400
 Processing by CommentsController#index as */*
   Parameters: {"artwork_share"=>{"artwork_id"=>"3", "viewer_id"=>"2"}, "user_id"=>"3"}
+Started GET "/users" for ::1 at 2021-07-23 04:27:32 +0800
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/gamestar/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 24ms (Views: 8.1ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/users/3/comments" for ::1 at 2021-07-23 04:28:06 +0800
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"3"}
+No template found for CommentsController#index, rendering head :no_content
+Completed 204 No Content in 28ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/users/3/comments" for ::1 at 2021-07-23 04:29:18 +0800
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"3"}
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 10.3ms)
+
+
+  
+NoMethodError (undefined method `json' for #<CommentsController:0x00007f29541eb548>
+Did you mean?  JSON):
+  
+app/controllers/comments_controller.rb:8:in `index'
+Started GET "/users/3/comments" for ::1 at 2021-07-23 04:29:50 +0800
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/comments_controller.rb:8
+Completed 200 OK in 14ms (Views: 6.0ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/users/1/comments" for ::1 at 2021-07-23 04:30:25 +0800
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/comments_controller.rb:8
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/artworks/3/comments" for ::1 at 2021-07-23 04:30:44 +0800
+Processing by CommentsController#index as */*
+  Parameters: {"artwork_id"=>"3"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 3]]
+  ↳ app/controllers/comments_controller.rb:5
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/artworks/3/comments" for ::1 at 2021-07-23 04:37:25 +0800
+Processing by CommentsController#index as */*
+  Parameters: {"artwork_id"=>"3"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 3]]
+  ↳ app/controllers/comments_controller.rb:5
+Completed 200 OK in 21ms (Views: 6.4ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/artworks/1/comments" for ::1 at 2021-07-23 04:37:30 +0800
+Processing by CommentsController#index as */*
+  Parameters: {"artwork_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."artwork_id" = $1[0m  [["artwork_id", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/comments" for ::1 at 2021-07-23 04:37:43 +0800
+Processing by CommentsController#index as */*
+  Parameters: {"user_id"=>"1"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/comments_controller.rb:8
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/" for ::1 at 2021-07-23 04:50:46 +0800
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 17ms (Views: 8.3ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/users/" for ::1 at 2021-07-23 04:57:38 +0800
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users?query=Jay" for ::1 at 2021-07-23 04:58:18 +0800
+Processing by UsersController#index as */*
+  Parameters: {"query"=>"Jay"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users?username=Jay" for ::1 at 2021-07-23 04:58:40 +0800
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Jay"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=Jay):
+  
+app/controllers/users_controller.rb:7:in `index'
+Started GET "/users?query=Jay" for ::1 at 2021-07-23 04:58:53 +0800
+Processing by UsersController#index as */*
+  Parameters: {"query"=>"Jay"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users?username=Jay" for ::1 at 2021-07-23 05:02:05 +0800
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Jay"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+Completed 404 Not Found in 31ms (ActiveRecord: 17.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=Jay):
+  
+app/controllers/users_controller.rb:10:in `index'
+Started GET "/users?username=Jay" for ::1 at 2021-07-23 05:03:01 +0800
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Jay"}
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (Jay) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 16.6ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "jay" does not exist
+LINE 1: SELECT  "users".* FROM "users" WHERE (Jay) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (Jay) LIMIT $1):
+  
+app/controllers/users_controller.rb:10:in `index'
+Started GET "/users?username=Jay" for ::1 at 2021-07-23 05:03:27 +0800
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Jay"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.4ms)
+
+
+  
+ArgumentError (Unsupported argument type: username (Symbol)):
+  
+app/controllers/users_controller.rb:10:in `index'
+Started GET "/users?username=Jay" for ::1 at 2021-07-23 05:03:47 +0800
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Jay"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username) LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type character varying
+LINE 1: SELECT  "users".* FROM "users" WHERE (username) LIMIT $1
+                                              ^
+: SELECT  "users".* FROM "users" WHERE (username) LIMIT $1):
+  
+app/controllers/users_controller.rb:10:in `index'
+Started GET "/users?username=Jay" for ::1 at 2021-07-23 05:04:36 +0800
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Jay"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = Jay)[0m
+  ↳ app/controllers/users_controller.rb:17
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "jay" does not exist
+LINE 1: SELECT "users".* FROM "users" WHERE (username = Jay)
+                                                        ^
+: SELECT "users".* FROM "users" WHERE (username = Jay)):
+  
+app/controllers/users_controller.rb:17:in `index'
+Started GET "/users?query=Jay" for ::1 at 2021-07-23 05:06:30 +0800
+Processing by UsersController#index as */*
+  Parameters: {"query"=>"Jay"}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (username = Jay)[0m
+  ↳ app/controllers/users_controller.rb:17
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 4.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "jay" does not exist
+LINE 1: SELECT "users".* FROM "users" WHERE (username = Jay)
+                                                        ^
+: SELECT "users".* FROM "users" WHERE (username = Jay)):
+  
+app/controllers/users_controller.rb:17:in `index'
+Started GET "/users?query=Jay" for ::1 at 2021-07-23 05:12:19 +0800
+Processing by UsersController#index as */*
+  Parameters: {"query"=>"Jay"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant UsersController::Users):
+  
+app/controllers/users_controller.rb:13:in `index'
+Started GET "/users?username=Jay" for ::1 at 2021-07-23 05:12:34 +0800
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"Jay"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jay"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 28ms (Views: 0.4ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/users?query=Jay" for ::1 at 2021-07-23 05:15:33 +0800
+Processing by UsersController#index as */*
+  Parameters: {"query"=>"Jay"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jay"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 48ms (Views: 2.1ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/users?abb=Jay" for ::1 at 2021-07-23 05:16:15 +0800
+Processing by UsersController#index as */*
+  Parameters: {"abb"=>"Jay"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant UsersController::Users):
+  
+app/controllers/users_controller.rb:6:in `index'
+Started GET "/users?abb=Jay" for ::1 at 2021-07-23 05:16:20 +0800
+Processing by UsersController#index as */*
+  Parameters: {"abb"=>"Jay"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jay"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users?query=Jay" for ::1 at 2021-07-23 05:17:07 +0800
+Processing by UsersController#index as */*
+  Parameters: {"query"=>"Jay"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jay"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 29ms (Views: 0.3ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/users?query=Jay" for ::1 at 2021-07-23 05:18:06 +0800
+Processing by UsersController#index as */*
+  Parameters: {"query"=>"Jay"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jay"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users?query=Jay" for ::1 at 2021-07-23 05:18:12 +0800
+Processing by UsersController#index as */*
+  Parameters: {"query"=>"Jay"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jay"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 361069ms (Views: 0.2ms | ActiveRecord: 4.6ms)
+
+

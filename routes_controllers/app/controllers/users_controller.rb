@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
     def index
-        users = User.all
+        debugger
+        if params[:query]
+            users = User.find_by(username: params[:query])
+        else
+            users = Users.all 
+        end
         render json: users
+        
     end
 
     def show
